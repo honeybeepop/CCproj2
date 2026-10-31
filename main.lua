@@ -98,6 +98,9 @@ pop()
             if frameCount > 24 then
             image(scope,0,0,width)
             end
+            if frameCount > 28 then
+            image(blank, 0,0,width)
+            end
         end
         pop()
 --scope show/hide
@@ -107,9 +110,7 @@ pop()
   if scopeVis == "scopeShow" then
     scopeAnimation()
   else
-    noStroke()
-    fill(200,200,200,0)
-    rect(0,0,10,10)
+    image(blank, 0,0,width)
     end
 end
 
