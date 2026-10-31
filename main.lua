@@ -6,12 +6,13 @@ overlays = loadImage('assets/overlays-ccp2.png')
 stag = loadImage('assets/stag-ccp2.png')
 sblood = loadImage('assets/stagblood-ccp2.png')
 --reticle loads
-reticle = loadImage('assets/scope/scopereticle-ccp2.png')
-north = loadImage('assets/scope/scopeN-ccp2.png')
-east = loadImage('assets/scope/scopeE-ccp2.png')
-south = loadImage('assets/scope/scopeS-ccp2.png')
-west = loadImage('assets/scope/scopeW-ccp2.png')
-dot = loadImage('assets/scope/scopedot-ccp2.png')
+reticle = loadImage('assets/scope/reticle-ccp2.png')
+north = loadImage('assets/scope/north-ccp2.png')
+east = loadImage('assets/scope/east-ccp2.png')
+south = loadImage('assets/scope/south-ccp2.png')
+west = loadImage('assets/scope/west-ccp2.png')
+scope = loadImage('assets/scope/fullscope-ccp2.png')
+blank = loadImage('assets/scope/mooncover-ccp2.png')
 --fawn 1 loads
 fawn1 = loadImage('assets/f1/fawn1-ccp2.png')
 f1blood = loadImage('assets/f1/blood-ccp2.png')
@@ -67,7 +68,7 @@ sBloodShow = true
 sBloodHide = false
 sBloodVis = random({"sBloodShow", "sBloodHide"})
 if sBloodVis == "sBloodShow" then
-    image(sblood, 0,0, width)
+    image(sblood, 0,0, width, height)
 else
     noStroke()
     fill(0,0,0,0)
@@ -76,18 +77,30 @@ end
 pop()
 --scope animation function
         push()
-        frameRate(8)
         function scopeAnimation()
+                    frameRate(4)
+            image(blank, 0,0,width)
+            if frameCount > 4 then
             image(reticle, 0,0, width)
+            end
+            if frameCount > 8 then
             image(north, 0,0,width)
+            end
+            if frameCount > 12 then
             image(east,0,0, width)
+            end
+            if frameCount > 16 then
             image(south,0,0,width)
+            end
+            if frameCount > 20 then
             image(west,0,0,width)
-            image(dot,0,0,width)
+            end
+            if frameCount > 24 then
+            image(scope,0,0,width)
+            end
         end
         pop()
 --scope show/hide
-    frameRate(6)
   scopeShow = true
   scopeHide = false
   scopeVis = random({"scopeHide", "scopeShow"})
