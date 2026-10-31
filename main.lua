@@ -28,12 +28,14 @@ f2spark = loadImage('assets/f2/spark-ccp2.png')
 --image will automatically set to height if you JUST put the "width" value in the img call
 
 --img showing tables
-stagBlood = {"yes", "no"}
+--         sparkleSpin = {"plus", "x", "15deg"}
 
---randomization
---stag blood, one of 2
---fawnturn, one of 3
---scope, one of two options
+--randomization yes/nos
+--stag bloody?
+
+--does reticle show?
+
+--does fawn turn?
 
 --setup
 function setup()
@@ -41,19 +43,27 @@ function setup()
     angleMode(DEGREES)
     windowTitle("bee larson, fury of Jane")
     background(imgbg, 0)
-                    for i = 1,10,1 do
-                    fill(47,39,51,7)
+    --overlay for loop
+                    for i = 1,5,1 do
+                    fill(47,39,51,5)
                     rect(0,0,697,935)
                     end
+    --sparkle for loop:
+ --for i = 1, 5 do
+ --if i%3 == 0 and fawn1 position true then
+ --sparkle changes size on fawn1
+ --elseif 1%3 == 0 and fawn15 true then
+ --sparkle changes on fawn15
+ --elseif 1%3 == 0 and fawn2 true then
+ --sparkle changes on fawn2
+ --end
 end
 
 function draw()
 end
 
-function mousePressed()
-    background(imgbg,0)
-        for i = 1,10,1 do
-            fill(47,39,51,7)
-            rect(0,0,697,935)
-        end
-end
+
+--bee notes:
+--for loop for sparkle sizing
+--scope construction and doe turn animates, dependent on random value to kickstart it
+--randomness is just simple on or off values (stag blood, reticle appearance or wether the doe turns or not)
