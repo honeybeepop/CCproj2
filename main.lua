@@ -27,13 +27,31 @@ f2spark = loadImage('assets/f2/spark-ccp2.png')
 
 --image will automatically set to height if you JUST put the "width" value in the img call
 
+--img showing tables
+stagBlood = {"yes", "no"}
+
+--randomization
+--stag blood, one of 2
+--fawnturn, one of 3
+--scope, one of two options
+
 --setup
 function setup()
     size(697, 935)
     angleMode(DEGREES)
     windowTitle("bee larson, fury of Jane")
     background(imgbg, 0)
+                    for i = 1,10,1 do
+                    image(overlays, width, height)
+                    end
 end
 
 function draw()
+end
+
+function mousePressed()
+    background(imgbg,0)
+        for i = 1,10,1 do
+            image(overlays, width, height)
+        end
 end
