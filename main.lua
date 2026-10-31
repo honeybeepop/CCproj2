@@ -28,19 +28,17 @@ f2spark = loadImage('assets/f2/spark-ccp2.png')
 --image will automatically set to height if you JUST put the "width" value in the img call
 
 --img showing tables
---         sparkleSpin = {"plus", "x", "15deg"}
+--sparkleSpin = {"plus", "x", "15deg"}
 
---randomization yes/nos
---stag bloody?
+--scope aniamtion
 
---does reticle show?
-
---does fawn turn?
+--fawn turn animation
 
 --setup
 function setup()
     size(697, 935)
     angleMode(DEGREES)
+    colorMode(RGB)
     windowTitle("bee larson, fury of Jane")
     background(imgbg, 0)
     --overlay for loop
@@ -62,6 +60,25 @@ end
 --draw constants (stag)
 function draw()
     image(stag, 0,0, width)
+--is stag bloody?
+sBloodShow = true
+sBloodHide = false
+sBloodVis = random({"sBloodShow", "sBloodHide"})
+if sBloodVis == "sBloodShow" then
+    image(sblood, 0,0, width)
+end
+--scope show/hide
+    frameRate(12)
+  scopeShow = true
+  scopeHide = false
+  scopeVis = random({"scopeHide", "scopeShow"})
+  if scopeVis == "scopeShow" then
+    fill(100,100,100)
+    rect(100,100,200,200)
+  else
+    fill(200,200,200)
+    rect(0,0,10,10)
+end
 end
 
 
