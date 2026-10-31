@@ -42,7 +42,8 @@ function setup()
     windowTitle("bee larson, fury of Jane")
     background(imgbg, 0)
                     for i = 1,10,1 do
-                    image(overlays, width, height)
+                    fill(47,39,51,7)
+                    rect(0,0,697,935)
                     end
 end
 
@@ -52,6 +53,7 @@ end
 function mousePressed()
     background(imgbg,0)
         for i = 1,10,1 do
-            image(overlays, width, height)
+            fill(47,39,51,7)
+            rect(0,0,697,935)
         end
 end
