@@ -59,6 +59,8 @@ end
 
 --draw constants (stag)
 function draw()
+push()
+frameRate(2)
     image(stag, 0,0, width)
 --is stag bloody?
 sBloodShow = true
@@ -66,19 +68,36 @@ sBloodHide = false
 sBloodVis = random({"sBloodShow", "sBloodHide"})
 if sBloodVis == "sBloodShow" then
     image(sblood, 0,0, width)
+else
+    noStroke()
+    fill(0,0,0,0)
+    rect(0,0,200,200)
 end
+pop()
+--scope animation function
+        push()
+        frameRate(8)
+        function scopeAnimation()
+            image(reticle, 0,0, width)
+            image(north, 0,0,width)
+            image(east,0,0, width)
+            image(south,0,0,width)
+            image(west,0,0,width)
+            image(dot,0,0,width)
+        end
+        pop()
 --scope show/hide
-    frameRate(12)
+    frameRate(6)
   scopeShow = true
   scopeHide = false
   scopeVis = random({"scopeHide", "scopeShow"})
   if scopeVis == "scopeShow" then
-    fill(100,100,100)
-    rect(100,100,200,200)
+    scopeAnimation()
   else
-    fill(200,200,200)
+    noStroke()
+    fill(200,200,200,0)
     rect(0,0,10,10)
-end
+    end
 end
 
 
