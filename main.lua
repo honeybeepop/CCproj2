@@ -59,7 +59,9 @@ function setup()
  --end
 end
 
+--draw constants (stag)
 function draw()
+    image(stag, 0,0, width)
 end
 
 
