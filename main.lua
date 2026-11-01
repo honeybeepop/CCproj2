@@ -27,9 +27,6 @@ f2spark = loadImage('assets/f2/spark-ccp2.png')
 test = loadImage('assets/stagwbgtest.png')
 
 
---img showing tables
---sparkleSpin = {"plus", "x", "15deg"}
-
 --setup
 function setup()
     size(697, 935)
@@ -43,39 +40,6 @@ function setup()
                     fill(47,39,51,5)
                     rect(0,0,697,935)
                     end
-    --sparkle for loop:
- --for i = 1, 5 do
- --if i%3 == 0 and fawn1 position true then
- --sparkle changes size on fawn1
- --elseif 1%3 == 0 and fawn15 true then
- --sparkle changes on fawn15
- --elseif 1%3 == 0 and fawn2 true then
- --sparkle changes on fawn2
- --end
-end
-
---draw constants (stag, fawn1)
-
-
---does fawn turn?
-
---fawn animations
-function draw()
-    background(test, 0)
-push()
-frameRate(12)
-function fawnAnimation()
-    if frameCount < 10 then
-        image(fawn1, 0,0,width)
-    end
-    if frameCount > 14 then
-        image(fawn15,0,0,width)
-    end
-    if frameCount > 16 then
-        image(fawn2,0,0,width)
-    end
-end
-pop()
 end
 
 function draw()
@@ -133,8 +97,34 @@ pop()
   else
     image(blank, 0,0,width)
     end
+
+    --fawn is there?
+    function fawn1Spark()
+    fawn1Show = true
+    fawn1Hide = false
+    fawn1Vis = random({"fawn1Show","fawn1Hide"})
+    if fawn1Vis == "fawn1Show" then
+        for i = 1, 5 do
+       if i%3 == 0 and "fawn1Vis" == true then
+            if frameCount > 12 then
+                image(f1spark,0,0,width)
+            end
+            if frameCount >14 then
+                image(f1spark,0,0,width*1.5, height*1.5)
+            end
+            if frameCount >16 then
+                image(f1spark,0,0,width)
+            end
+        end
+        --elseif 1%3 == 0 and fawn15 true then
+        --sparkle changes on fawn15
+        --elseif 1%3 == 0 and fawn2 true then
+        --sparkle changes on fawn2
+        end
+    end
+    end
 end
 
 function mousePressed()
-    fawnAnimation()
+    fawn1Spark()
 end
