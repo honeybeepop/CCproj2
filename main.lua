@@ -127,10 +127,4 @@ end
 pop()
 end
 
---troubleshooting
-function mousePressed()
-    function fawnAnimation()
-end
-
 --draw loop end
-end
