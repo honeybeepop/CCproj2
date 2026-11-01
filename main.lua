@@ -5,6 +5,7 @@ imgbg = loadImage('assets/bg-ccp2.png')
 overlays = loadImage('assets/overlays-ccp2.png')
 stag = loadImage('assets/stag-ccp2.png')
 sblood = loadImage('assets/stagblood-ccp2.png')
+ground = loadImage('assets/ground-ccp2.png')
 --reticle loads
 reticle = loadImage('assets/scope/reticle-ccp2.png')
 north = loadImage('assets/scope/north-ccp2.png')
@@ -75,7 +76,7 @@ else
     rect(0,0,200,200)
 end
 pop()
---scope animation function
+--scope animation
         push()
         function scopeAnimation()
             if frameCount > 0 then
@@ -113,21 +114,49 @@ pop()
   else
     image(blank, 0,0,width)
     end
---fawn animations
-push()
-    for i = 1,6,1 do
-    image(fawn1, 0,0, width)
-    if frameCount < 180 then
-        image(fawn1, 0,0,width)
-    end
-    if frameCount > 181 then
-        image(fawn15,0,0,width)
-    end
-    if frameCount > 360 then
-        image(fawn2, 0,0, width)
-    end
-pop()
+--fawn show/hides
+f1Show = true
+f1Hide = false
+f15Show = true
+f15Hide = false
+f2Show = true
+f2Hide = false
+--does fawn turn?
+noTurn = false
+yesTurn = true
+fawnTurn = random({"noTurn", "yesTurn"})
+if fawnLoop == "fawnTurn" then
+    fawnAnimation
+else
+    image(--base fawn)
 end
+--fawn animations
+        push()
+        function fawnAnimation()
+                image(fawn1, 0,0, width)
+            if frameCount < 10 then
+                image(fawn1, 0,0,width)
+            end
+            if frameCount > 11 then
+                image(fawn15,0,0,width)
+                image(ground, 0,0, width)
+            end
+            if frameCount > 12 then
+                image(fawn2, 0,0, width)
+                image(ground, 0,0, width)
+            end
+            if frameCount > 28 then
+                image(fawn15,0,0,width)
+                image(ground, 0,0, width)
+            end
+            if frameCount > 29 then
+                image(fawn1,0,0,width)
+                image(ground, 0,0, width)
+            end
+            pop()
+        end
+        pop()
+push()
 end
 
 --bee notes:
