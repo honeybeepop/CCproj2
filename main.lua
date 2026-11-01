@@ -68,7 +68,7 @@ sBloodShow = true
 sBloodHide = false
 sBloodVis = random({"sBloodShow", "sBloodHide"})
 if sBloodVis == "sBloodShow" then
-    image(sblood, 0,0, width, height)
+    image(sblood, 0,0, width)
 else
     noStroke()
     fill(0,0,0,0)
@@ -78,27 +78,25 @@ pop()
 --scope animation function
         push()
         function scopeAnimation()
-                    frameRate(4)
-            image(blank, 0,0,width)
-            if frameCount > 4 then
+            if frameCount > 12 then
             image(reticle, 0,0, width)
             end
-            if frameCount > 8 then
+            if frameCount > 16 then
             image(north, 0,0,width)
             end
-            if frameCount > 12 then
+            if frameCount > 20 then
             image(east,0,0, width)
             end
-            if frameCount > 16 then
+            if frameCount > 24 then
             image(south,0,0,width)
             end
-            if frameCount > 20 then
+            if frameCount > 28 then
             image(west,0,0,width)
             end
-            if frameCount > 24 then
+            if frameCount > 32 then
             image(scope,0,0,width)
             end
-            if frameCount > 28 then
+            if frameCount > 36 then
             image(blank, 0,0,width)
             end
         end
@@ -112,8 +110,11 @@ pop()
   else
     image(blank, 0,0,width)
     end
+--fawn animations
+    for i = 1,6,1 do
+    image(fawn1, 0,0, width)
+    end
 end
-
 
 --bee notes:
 --for loop for sparkle sizing
