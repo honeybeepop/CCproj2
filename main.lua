@@ -24,14 +24,9 @@ f15spark = loadImage('assets/f1.5/spark-ccp2.png')
 fawn2 = loadImage('assets/f2/fawn2-ccp2.png')
 f2spark = loadImage('assets/f2/spark-ccp2.png')
 
---image will automatically set to height if you JUST put the "width" value in the img call
 
 --img showing tables
 --sparkleSpin = {"plus", "x", "15deg"}
-
---scope aniamtion
-
---fawn turn animation
 
 --setup
 function setup()
@@ -56,11 +51,12 @@ function setup()
  --end
 end
 
---draw constants (stag)
+--draw constants (stag, fawn1)
 function draw()
 push()
 frameRate(2)
     image(stag, 0,0, width)
+    image(fawn1,0,0,width)
 --is stag bloody?
 sBloodShow = true
 sBloodHide = false
@@ -114,60 +110,27 @@ pop()
 
 
 --does fawn turn?
-noTurn = false
-yesTurn = true
-fawnTurn = random({"noTurn", "yesTurn"})
-if fawnLoop == "fawnTurn" then
-    fawnAnimation()
-else
-    image(fawn1,0,0,width)
-end
+
 --fawn animations
-        push()
-        function fawnAnimation()
-                image(fawn1, 0,0, width)
-            if frameCount < 10 then
-                image(fawn1, 0,0,width)
-            end
-            if frameCount > 11 then
-                image(fawn15,0,0,width)
-            end
-            if frameCount > 12 then
-                image(fawn2, 0,0, width)
-            end
-            if frameCount > 28 then
-                image(fawn15,0,0,width)
-            end
-            if frameCount > 29 then
-                image(fawn1,0,0,width)
-            end
-        pop()
-        end
-    pop()
 push()
+function fawnAnimation()
+    if frameCount < 10 then
+        image(fawn1, 0,0,width)
+    end
+    if frameCount > 14 then
+        image(fawn15,0,0,width)
+    end
+    if frameCount > 16 then
+        image(fawn2,0,0,width)
+    end
+end
+pop()
 end
 
+--troubleshooting
 function mousePressed()
-    push()
-            function fawnAnimation()
-                image(fawn1, 0,0, width)
-            if frameCount > 2 then
-                image(fawn15,0,0,width)
-            end
-            if frameCount > 3 then
-                image(fawn2, 0,0, width)
-            end
-            if frameCount > 5 then
-                image(fawn15,0,0,width)
-            end
-            if frameCount > 10 then
-                image(fawn1,0,0,width)
-            end
-        end
-        pop()
+    function fawnAnimation()
 end
 
---bee notes:
---for loop for sparkle sizing
---scope construction and doe turn animates, dependent on random value to kickstart it
---randomness is just simple on or off values (stag blood, reticle appearance or wether the doe turns or not)
+--draw loop end
+end
