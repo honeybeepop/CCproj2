@@ -125,6 +125,6 @@ function fawnAnimation()
     end
 end
 pop()
-end
 
 --draw loop end
+end
