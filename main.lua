@@ -24,6 +24,8 @@ f15spark = loadImage('assets/f1.5/spark-ccp2.png')
 fawn2 = loadImage('assets/f2/fawn2-ccp2.png')
 f2spark = loadImage('assets/f2/spark-ccp2.png')
 
+test = loadImage('assets/stagwbgtest.png')
+
 
 --img showing tables
 --sparkleSpin = {"plus", "x", "15deg"}
@@ -35,6 +37,7 @@ function setup()
     colorMode(RGB)
     windowTitle("bee larson, fury of Jane")
     background(imgbg, 0)
+
     --overlay for loop
                     for i = 1,5,1 do
                     fill(47,39,51,5)
@@ -52,11 +55,35 @@ function setup()
 end
 
 --draw constants (stag, fawn1)
+
+
+--does fawn turn?
+
+--fawn animations
+function draw()
+    background(test, 0)
+push()
+frameRate(12)
+function fawnAnimation()
+    if frameCount < 10 then
+        image(fawn1, 0,0,width)
+    end
+    if frameCount > 14 then
+        image(fawn15,0,0,width)
+    end
+    if frameCount > 16 then
+        image(fawn2,0,0,width)
+    end
+end
+pop()
+end
+
 function draw()
 push()
 frameRate(2)
     image(stag, 0,0, width)
     image(fawn1,0,0,width)
+
 --is stag bloody?
 sBloodShow = true
 sBloodHide = false
@@ -69,6 +96,7 @@ else
     rect(0,0,200,200)
 end
 pop()
+
 --scope animation
         push()
         function scopeAnimation()
@@ -93,11 +121,9 @@ pop()
             if frameCount > 32 then
             image(scope,0,0,width)
             end
-            if frameCount > 36 then
-            image(scope, 0,0,width)
-            end
         end
         pop()
+
 --scope show/hide
   scopeShow = true
   scopeHide = false
@@ -107,24 +133,8 @@ pop()
   else
     image(blank, 0,0,width)
     end
-
-
---does fawn turn?
-
---fawn animations
-push()
-function fawnAnimation()
-    if frameCount < 10 then
-        image(fawn1, 0,0,width)
-    end
-    if frameCount > 14 then
-        image(fawn15,0,0,width)
-    end
-    if frameCount > 16 then
-        image(fawn2,0,0,width)
-    end
 end
-pop()
 
---draw loop end
+function mousePressed()
+    fawnAnimation()
 end
