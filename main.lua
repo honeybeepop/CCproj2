@@ -78,6 +78,9 @@ pop()
 --scope animation function
         push()
         function scopeAnimation()
+            if frameCount > 0 then
+                image(blank, 0,0,width)
+            end
             if frameCount > 12 then
             image(reticle, 0,0, width)
             end
@@ -97,7 +100,7 @@ pop()
             image(scope,0,0,width)
             end
             if frameCount > 36 then
-            image(blank, 0,0,width)
+            image(scope, 0,0,width)
             end
         end
         pop()
@@ -111,9 +114,20 @@ pop()
     image(blank, 0,0,width)
     end
 --fawn animations
+push()
     for i = 1,6,1 do
     image(fawn1, 0,0, width)
+    if frameCount < 180 then
+        image(fawn1, 0,0,width)
     end
+    if frameCount > 181 then
+        image(fawn15,0,0,width)
+    end
+    if frameCount > 360 then
+        image(fawn2, 0,0, width)
+    end
+pop()
+end
 end
 
 --bee notes:
