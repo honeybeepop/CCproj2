@@ -16,15 +16,12 @@ scope = loadImage('assets/scope/fullscope-ccp2.png')
 blank = loadImage('assets/scope/mooncover-ccp2.png')
 --fawn 1 loads
 fawn1 = loadImage('assets/f1/fawn1-ccp2.png')
-f1blood = loadImage('assets/f1/blood-ccp2.png')
 f1spark = loadImage('assets/f1/spark-ccp2.png')
 --fawn 1.5 loads
 fawn15 = loadImage('assets/f1.5/fawn1.5-ccp2.png')
-f15blood = loadImage('assets/f1.5/blood-ccp2.png')
 f15spark = loadImage('assets/f1.5/spark-ccp2.png')
 --fawn 2 loads
 fawn2 = loadImage('assets/f2/fawn2-ccp2.png')
-f2blood = loadImage('assets/f2/blood-ccp2.png')
 f2spark = loadImage('assets/f2/spark-ccp2.png')
 
 --image will automatically set to height if you JUST put the "width" value in the img call
@@ -114,21 +111,16 @@ pop()
   else
     image(blank, 0,0,width)
     end
---fawn show/hides
-f1Show = true
-f1Hide = false
-f15Show = true
-f15Hide = false
-f2Show = true
-f2Hide = false
+
+
 --does fawn turn?
 noTurn = false
 yesTurn = true
 fawnTurn = random({"noTurn", "yesTurn"})
 if fawnLoop == "fawnTurn" then
-    fawnAnimation
+    fawnAnimation()
 else
-    image(--base fawn)
+    image(fawn1,0,0,width)
 end
 --fawn animations
         push()
@@ -139,24 +131,40 @@ end
             end
             if frameCount > 11 then
                 image(fawn15,0,0,width)
-                image(ground, 0,0, width)
             end
             if frameCount > 12 then
                 image(fawn2, 0,0, width)
-                image(ground, 0,0, width)
             end
             if frameCount > 28 then
                 image(fawn15,0,0,width)
-                image(ground, 0,0, width)
             end
             if frameCount > 29 then
                 image(fawn1,0,0,width)
-                image(ground, 0,0, width)
             end
-            pop()
+        pop()
+        end
+    pop()
+push()
+end
+
+function mousePressed()
+    push()
+            function fawnAnimation()
+                image(fawn1, 0,0, width)
+            if frameCount > 2 then
+                image(fawn15,0,0,width)
+            end
+            if frameCount > 3 then
+                image(fawn2, 0,0, width)
+            end
+            if frameCount > 5 then
+                image(fawn15,0,0,width)
+            end
+            if frameCount > 10 then
+                image(fawn1,0,0,width)
+            end
         end
         pop()
-push()
 end
 
 --bee notes:
