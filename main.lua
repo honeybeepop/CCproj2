@@ -128,3 +128,8 @@ end
 function mousePressed()
     fawn1Spark()
 end
+
+--hi chelsea!
+--im aware there are some things that don't work. i dont know why. id love to be able to make them work but ive tried everything i can think of.
+--ill put a video into my repository of what its supposed to look like and if i could get some troubleshooting feedback that would be awesome
+--i hate to turn in something that isnt what i need it to be but i genuinely cannot get this to work how i need it to & its driving me insane i think.
